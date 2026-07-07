@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>15 Anos · Ana Beatriz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Pinyon+Script&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <meta property="og:title" content="🎀 Convite de 15 Anos · Ana Beatriz">
+<meta property="og:description" content="Com alegria e emoção, convido você para celebrar meus 15 anos! 🎉">
+<meta property="og:image" content="https://SEU-SITE.com/fotos/telainicial.png">
+<meta property="og:url" content="https://SEU-SITE.com">
+<meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --gold:       #31A2D8;
+      --gold-light: #6bbadf;
+      --gold-dark:  #10638a;
+      --gold-glow:  rgba(#bfdce9);
+      --olive:      #5CA3CB;
+      --olive-light:#5CA3CB;
+      --cream:      #FDFBF7;
+      --cream-dark: #F3EEE5;
+      --ink:        #2C2417;
+      --ink-soft:   #2C2417;
+      --ink-muted:  #9A8E7C;
+      --rose:       #E8C5C0;
+      --rose-soft:  #F5E8E6;
+      --shadow-lg:  0 25px 60px rgba(44,36,23,0.18), 0 8px 20px rgba(44,36,23,0.10);
+      --shadow-gold:0 0 40px rgba(196,154,69,0.30);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #BBF0FE;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--ink);
+      display: flex;
+      justify-content: center;
+      min-height: 100dvh;
+      overflow-x: hidden;
+    }
+
+    /* PETALS */
+    #petalLayer {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9; overflow: hidden;
+    }
+    .petal {
+      position: absolute; top: -8vh;
+      border-radius: 50% 5% 50% 5%;
+      opacity: 0;
+      animation: petalFall linear infinite;
+      will-change: transform, opacity;
+    }
+    @keyframes petalFall {
+      0%   { transform: translateY(0) translateX(0) rotate(0deg) scale(1); opacity: 0; }
+      8%   { opacity: 0.7; }
+      90%  { opacity: 0.5; }
+      100% { transform: translateY(110vh) translateX(var(--pdrift)) rotate(var(--prot)) scale(0.8); opacity: 0; }
+    }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.9s cubic-bezier(.22,.68,0,1.2), transform 0.9s cubic-bezier(.22,.68,0,1.2);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+    .reveal-delay-3 { transition-delay: 0.38s; }
+    .reveal-delay-4 { transition-delay: 0.52s; }
+
+    /* INVITE WRAPPER — fundo aquarela */
+    .invite {
+      width: 100%;
+      max-width: 430px;
+      background-image: url('fotos/fundodomar.png');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* INTRO */
+    #intro {
+      position: fixed; inset: 0; z-index: 200;
+      background: #0a0704;
+      display: flex; align-items: center; justify-content: center; flex-direction: column;
+      transition: opacity 1.8s ease;
+    }
+    #intro video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: contain;
+    }
+    #introOverlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.5) 0%, rgba(0,0,0,.2) 60%, rgba(0,0,0,.6) 100%);
+      display: flex; flex-direction: column; align-items: center;
+      /* botão subido: justify-content flex-start + padding-top */
+      justify-content: flex-start;
+      padding-top: 22vh;
+      cursor: pointer; z-index: 10; gap: 20px;
+    }
+    .play-ring {
+      width: 96px; height: 96px; border-radius: 50%;
+      background: conic-gradient(var(--gold-light), var(--gold), var(--gold-dark), var(--gold-light));
+      display: flex; align-items: center; justify-content: center;
+      animation: ringPulse 2.2s ease-in-out infinite;
+      position: relative;
+    }
+    .play-ring::after {
+      content: ''; position: absolute; inset: 3px;
+      border-radius: 50%; background: rgba(10,7,4,.85);
+    }
+    .play-ring svg { position: relative; z-index: 1; color: var(--gold-light); }
+    @keyframes ringPulse {
+      0%,100% { box-shadow: 0 0 0 0 var(--gold-glow); }
+      50%      { box-shadow: 0 0 0 18px rgba(196,154,69,0); }
+    }
+    .intro-name {
+      font-family: 'Pinyon Script', cursive;
+      font-size: clamp(40px, 12vw, 64px);
+      color: #fff;
+      text-shadow: 0 2px 20px rgba(196,154,69,.6);
+      letter-spacing: .04em;
+    }
+    .intro-cta {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; letter-spacing: .25em; text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    #skipBtn {
+      position: absolute;
+      top: max(20px, env(safe-area-inset-top)); right: 20px;
+      z-index: 20;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2);
+      backdrop-filter: blur(8px); color: rgba(255,255,255,.75);
+      font-family: 'Jost', sans-serif; font-size: 9px;
+      letter-spacing: .2em; text-transform: uppercase;
+      padding: 8px 18px; border-radius: 99px; cursor: pointer;
+      display: none; transition: color .2s, background .2s;
+    }
+    #skipBtn:hover { color: #fff; background: rgba(255,255,255,.14); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      aspect-ratio: 9 / 16;
+      width: 100%;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: flex-start; text-align: center;
+      padding: 0 28px 28px; overflow: hidden;
+    }
+    .hero-floral-top {
+      position: relative; width: 100%; height: auto;
+      max-height: 34%; object-fit: contain; object-position: top center;
+      mix-blend-mode: multiply; opacity: 0.92;
+      pointer-events: none; flex-shrink: 0; margin-bottom: 0; z-index: 1;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 30% at 50% 30%, rgba(232,197,192,0.30) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 20% at 80% 75%, rgba(196,154,69,0.08) 0%, transparent 55%);
+      pointer-events: none; z-index: 0;
+    }
+    .hero > * { position: relative; z-index: 2; }
+    .hero-floral-top { z-index: 1; }
+    .hero-side-flower {
+      position: absolute; width: 130px; height: auto;
+      opacity: 0.70; pointer-events: none; z-index: 1;
+    }
+    .hero-side-flower.left  { left: -42px; top: 38%; }
+    .hero-side-flower.right { right: -42px; top: 58%; transform: scaleX(-1); }
+
+    .label-top {
+      font-family: 'Jost', sans-serif; font-size: 9px;
+      letter-spacing: .28em; text-transform: uppercase;
+      color: var(--ink-muted); margin-bottom: 4px; margin-top: 4px;
+    }
+    .hero-subtitle {
+      font-family: 'Pinyon Script', cursive;
+      font-size: clamp(30px, 8vw, 44px); color: var(--olive); line-height: 1;
+    }
+    .hero-15 {
+      font-family: 'Pinyon Script', cursive;
+      font-size: clamp(52px, 14vw, 70px); color: var(--olive); line-height: 1; margin-bottom: 4px;
+    }
+    .crown-wrap {
+      margin: 6px 0 4px;
+      filter: drop-shadow(0 4px 12px rgba(196,154,69,.4));
+      transition: filter .3s, transform .3s; cursor: default;
+    }
+    .crown-wrap:hover {
+      filter: drop-shadow(0 6px 18px rgba(196,154,69,.7)) brightness(1.08);
+      transform: translateY(-2px);
+    }
+    .crown-wrap img { width: 58px; height: auto; }
+
+    .hero-name {
+      font-family: 'Pinyon Script', cursive;
+      font-size: clamp(38px, 9vw, 58px); color: var(--gold); line-height: 1;
+      margin-bottom: 14px; text-shadow: 0 2px 18px rgba(196,154,69,.25); white-space: nowrap;
+    }
+    .photo-arch-outer { position: relative; width: 220px; margin: 0 auto 14px; flex-shrink: 0; }
+    .photo-arch-border {
+      border-top-left-radius: 9999px; border-top-right-radius: 9999px;
+      border: 2px solid var(--gold); padding: 4px; background: var(--cream);
+      box-shadow: 0 0 0 3px rgba(196,154,69,.12), var(--shadow-gold);
+      position: relative; z-index: 2;
+    }
+    .photo-arch-border img {
+      width: 100%; height: 260px; object-fit: cover;
+      border-top-left-radius: 9999px; border-top-right-radius: 9999px; display: block;
+    }
+    .photo-arch-border::after {
+      content: ''; position: absolute; inset: 0; border-radius: inherit;
+      background: linear-gradient(135deg, rgba(255,255,255,.22) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .hero-quote {
+      font-style: italic; font-size: 14.5px; line-height: 1.25;
+      color: var(--ink-soft); max-width: 260px; text-align: center; margin: 0 auto;
+    }
+    .scroll-hint {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 5px; margin-top: 14px; opacity: 0.7;
+    }
+    .scroll-hint span {
+      font-family: 'Jost', sans-serif; font-size: 8px;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--gold);
+    }
+    .scroll-arrow {
+      width: 14px; height: 14px;
+      border-right: 1.5px solid var(--gold); border-bottom: 1.5px solid var(--gold);
+      transform: rotate(45deg); animation: arrowBounce 1.8s ease-in-out infinite;
+    }
+    @keyframes arrowBounce {
+      0%,100% { transform: rotate(45deg) translateY(0); }
+      50%      { transform: rotate(45deg) translateY(5px); }
+    }
+
+    /* SECTIONS */
+    section { position: relative; z-index: 10; }
+    .section-pad { padding: 64px 36px; }
+    .gold-rule { width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); margin: 16px auto; }
+    .gold-rule.wide { width: 120px; }
+    .sec-eyebrow { font-family: 'Jost', sans-serif; font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 6px; }
+    .sec-title { font-family: 'Pinyon Script', cursive; font-size: clamp(36px, 10vw, 50px); color: var(--gold); line-height: 1.1; margin-bottom: 6px; }
+    .sec-title-olive { color: var(--olive); }
+
+    /* AUDIO */
+    .audio-section { padding: 36px 36px 0; text-align: center; }
+    .audio-label { font-family: 'Jost', sans-serif; font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .audio-controls { display: flex; align-items: center; justify-content: center; gap: 24px; }
+    .audio-side-btn { background: none; border: none; cursor: pointer; color: var(--gold); padding: 6px; transition: transform .25s, color .25s; }
+    .audio-side-btn:hover { color: var(--gold-dark); transform: scale(1.15); }
+    .audio-side-btn svg { width: 18px; height: 18px; display: block; }
+    .play-btn-wrap { position: relative; }
+    .play-ping { position: absolute; inset: 0; border-radius: 50%; background: var(--gold); opacity: .35; animation: ping 2.4s ease-in-out infinite; }
+    @keyframes ping {
+      0%,100% { transform: scale(1); opacity: .35; }
+      50%      { transform: scale(1.55); opacity: 0; }
+    }
+    #playBtn {
+      position: relative; z-index: 2; width: 62px; height: 62px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+      border: 1px solid rgba(255,255,255,.25);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; box-shadow: 0 6px 22px rgba(196,154,69,.45);
+      cursor: pointer; transition: transform .2s, box-shadow .2s;
+    }
+    #playBtn:hover { transform: scale(1.06); box-shadow: 0 10px 30px rgba(196,154,69,.6); }
+    #playBtn svg { width: 26px; height: 26px; }
+    #playIcon  { display: block; }
+    #pauseIcon { display: none; }
+
+    /* FAMILY */
+    .family-section { padding: 60px 36px; text-align: center; position: relative; }
+    .family-names { font-family: 'Pinyon Script', cursive; font-size: clamp(28px, 8vw, 38px); color: var(--ink); line-height: 1.5; }
+    .xv-badge { display: inline-block; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--olive); border: 1px solid var(--olive-light); padding: 7px 24px; border-radius: 99px; margin-top: 18px; }
+
+    /* DATE */
+    .date-section { padding: 32px 36px 64px; text-align: center; position: relative; }
+    .date-month { font-family: 'Pinyon Script', cursive; font-size: clamp(50px, 14vw, 68px); color: var(--ink-soft); line-height: 1; }
+    .date-row { display: flex; align-items: center; justify-content: center; gap: 20px; margin: 6px 0 0; }
+    .date-pill { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); padding: 4px 0; }
+    .date-day { font-family: 'Cormorant Garamond', serif; font-size: clamp(70px, 20vw, 96px); font-weight: 300; color: var(--gold); line-height: 1; }
+
+    /* PINK BLOCK */
+    .pink-block { position: relative; width: 100%; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: 72px 0; overflow: hidden; }
+    .pink-block-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; opacity: 0.82; z-index: -1; pointer-events: none; }
+    .pink-block > *:not(.pink-block-bg) { position: relative; z-index: 2; }
+
+    /* COUNTDOWN */
+    .countdown-section { text-align: center; padding: 0 28px 56px; }
+    .countdown-pre { font-family: 'Pinyon Script', cursive; font-size: 42px; color: var(--gold); margin-bottom: 14px; display: block; }
+    .countdown-grid { display: flex; justify-content: center; align-items: flex-start; gap: 6px; }
+    .countdown-unit { display: flex; flex-direction: column; align-items: center; }
+    .countdown-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 14vw, 68px); font-weight: 300; color: var(--olive); line-height: 1; min-width: 54px; text-align: center; }
+    .countdown-label { font-family: 'Jost', sans-serif; font-size: 8px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-muted); margin-top: 6px; }
+    .countdown-sep { font-size: clamp(40px, 12vw, 58px); color: var(--gold); line-height: 1; opacity: .6; align-self: flex-start; padding: 0 2px; }
+
+    /* CALENDAR */
+    .calendar-section { padding: 0 28px; text-align: center; }
+    .cal-month { font-family: 'Pinyon Script', cursive; font-size: 50px; color: var(--olive); line-height: 1.1; }
+    .cal-grid-header { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin: 14px 0 8px; }
+    .cal-grid-header div { font-family: 'Jost', sans-serif; font-size: 8px; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-muted); text-align: center; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px 4px; }
+    .cal-grid div { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 300; color: var(--ink-soft); text-align: center; padding: 4px 0; line-height: 1; }
+    .cal-grid div.highlight { position: relative; color: var(--cream); font-weight: 600; }
+    .cal-grid div.highlight::before { content: ''; position: absolute; inset: -4px -2px; background: var(--gold); border-radius: 50%; z-index: -1; box-shadow: 0 0 12px rgba(196,154,69,.5); }
+
+    /* FLORAL DIVIDER */
+    .floral-divider { width: 100%; opacity: 0.88; pointer-events: none; mix-blend-mode: multiply; display: block; }
+
+    /* LOCATIONS */
+    .location-card { margin-bottom: 48px; text-align: center; }
+    .location-icon { color: var(--olive); margin-bottom: 14px; }
+    .location-time { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; letter-spacing: .08em; color: var(--ink); margin-bottom: 6px; }
+    .location-name { font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-soft); line-height: 1.9; margin-bottom: 20px; }
+    .btn-gold { display: inline-block; font-family: 'Jost', sans-serif; font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--cream); background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark)); padding: 12px 28px; border-radius: 99px; text-decoration: none; box-shadow: 0 4px 18px rgba(196,154,69,.35); transition: transform .2s, box-shadow .2s; border: none; cursor: pointer; }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(196,154,69,.5); }
+
+    /* PHOTOS */
+    .full-photo { width: 100%; display: block; height: auto; }
+    .full-photo-wrap { position: relative; overflow: hidden; }
+    .full-photo-wrap::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, var(--cream)); pointer-events: none; }
+    .full-photo-wrap.no-fade::after { display: none; }
+    .full-photo-wrap.mask-both { -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%); }
+    .full-photo-wrap.mask-both::after { display: none; }
+
+    /* TIMELINE */
+    .timeline-wrap { padding: 0 28px 0 44px; position: relative; }
+    .timeline-line { position: absolute; left: 44px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--gold) 10%, var(--gold) 90%, transparent); }
+    .timeline-item { position: relative; padding-left: 28px; padding-bottom: 40px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot { position: absolute; left: -7px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--gold); border: 2px solid var(--cream); box-shadow: 0 0 0 2px var(--gold); }
+    .timeline-item-inner { display: flex; align-items: flex-start; gap: 14px; }
+    .timeline-icon { color: var(--olive); flex-shrink: 0; }
+    .timeline-icon svg { width: 28px; height: 28px; }
+    .timeline-time { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: .18em; color: var(--ink); margin-bottom: 2px; }
+    .timeline-event { font-family: 'Jost', sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-muted); }
+
+    /* DRESS CODE */
+    .dress-section { padding: 64px 36px; text-align: center; position: relative; }
+    .dress-icons { display: flex; justify-content: center; gap: 32px; margin: 20px 0; color: var(--ink-soft); }
+    .dress-icons svg { width: 44px; height: 44px; }
+    .dress-note { font-family: 'Jost', sans-serif; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-muted); line-height: 2; max-width: 260px; margin: 0 auto; }
+
+    /* GIFT */
+    .gift-section { padding: 64px 36px; text-align: center; position: relative; }
+    .gift-note { font-family: 'Jost', sans-serif; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-muted); line-height: 2; max-width: 280px; margin: 0 auto 28px; }
+    .bank-card { background: linear-gradient(135deg, rgba(196,154,69,.08), rgba(196,154,69,.03)); border: 1px solid rgba(196,154,69,.25); border-radius: 14px; padding: 24px 28px; display: inline-block; text-align: left; width: 100%; max-width: 300px; }
+    .bank-row { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); line-height: 2; }
+    .bank-row.accent { color: var(--gold); font-weight: 600; font-size: 13px; letter-spacing: .1em; }
+
+    /* CONFIRM */
+    .confirm-section { padding: 64px 36px; text-align: center; position: relative; }
+    .confirm-body { font-family: 'Jost', sans-serif; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-muted); line-height: 2; margin-bottom: 28px; }
+    .confirm-note { font-size: 9px; letter-spacing: .15em; text-transform: uppercase; font-family: 'Jost', sans-serif; color: var(--ink-muted); line-height: 2; max-width: 290px; margin: 32px auto 0; }
+    .confirm-note.bold { font-weight: 600; color: var(--ink-soft); }
+
+    /* FOOTER */
+    footer { padding: 48px 36px 32px; text-align: center; position: relative; z-index: 10; }
+    .footer-farewell { font-family: 'Pinyon Script', cursive; font-size: clamp(44px, 13vw, 60px); color: var(--olive); margin-bottom: 36px; }
+    .bouquet-frame { display: inline-block; background: var(--cream); box-shadow: 3px 5px 18px rgba(44,36,23,.15), -2px -2px 10px rgba(255,255,255,.6); padding: 6px; transform: rotate(2.5deg); width: 140px; }
+    .bouquet-frame img { width: 100%; height: 140px; object-fit: cover; display: block; }
+
+    /* SIDE FLOWERS */
+    .side-flower { position: absolute; pointer-events: none; z-index: 1; opacity: 0.75; }
+    .side-flower img { width: 160px; height: auto; }
+    .side-flower.left  { left: -52px; }
+    .side-flower.right { right: -52px; transform: scaleX(-1); }
+
+    /* GLASS CARD */
+    .glass-card { background: rgba(253,251,247,0.55); backdrop-filter: blur(14px) saturate(1.4); -webkit-backdrop-filter: blur(14px) saturate(1.4); border: 1px solid rgba(255,255,255,.5); border-radius: 18px; box-shadow: 0 8px 32px rgba(44,36,23,.10); padding: 28px 24px; }
+
+    @media (max-width: 380px) {
+      .hero-name { font-size: 58px; }
+      .countdown-num { min-width: 44px; }
+    }
+    @media (min-width: 500px) {
+      .invite { border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="petalLayer"></div>
+
+<!-- INTRO -->
+<div id="intro">
+  <video id="introVideo" playsinline preload="auto">
+    <source src="fotos/videoabertura.mp4" type="video/mp4">
+  </video>
+  <div id="introOverlay" onclick="startIntro()">
+    <p class="intro-name">Ana Beatriz</p>
+    <p class="intro-cta" style="margin-top:-10px;">Toque para começar</p>
+    <div class="play-ring">
+      <div style="position:absolute;inset:0;border-radius:50%;background:var(--gold);opacity:.3;animation:ping 2.2s ease-in-out infinite;"></div>
+      <svg style="position:relative;z-index:1" width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+  </div>
+  <button id="skipBtn" onclick="endIntro()">Pular</button>
+</div>
+
+<main class="invite">
+
+  <!-- HERO -->
+  <header class="hero">
+    <img src="fotos/flortop.webp" alt="" class="hero-floral-top">
+    <img src="fotos/florlateral.png" alt="" class="hero-side-flower left">
+    <img src="fotos/florlateral.png" alt="" class="hero-side-flower right">
+
+    <p class="label-top reveal">Um convite especial</p>
+    <div class="reveal reveal-delay-1" style="margin-bottom:2px">
+      <p class="hero-subtitle">Meus</p>
+      <p class="hero-15">15 Anos</p>
+    </div>
+    <div class="crown-wrap reveal reveal-delay-2">
+      <img src="fotos/coroa.png" alt="Coroa">
+    </div>
+    <h1 class="hero-name reveal reveal-delay-2">Ana Beatriz</h1>
+    <div class="photo-arch-outer reveal reveal-delay-3">
+      <div class="photo-arch-border">
+        <img src="fotos/debutante01.png" alt="Ana Beatriz">
+      </div>
+    </div>
+    <p class="hero-quote reveal reveal-delay-4">
+      "Com um coração que transborda felicidade e uma luz que encanta a todos, Ana Beatriz realiza seu tão sonhado sonho de 15 anos. Venha fazer parte desse novo começo cheio de brilho e emoção."
+    </p>
+    <div class="scroll-hint reveal reveal-delay-4">
+      <span>Deslize para baixo</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </header>
+
+  <!-- AUDIO -->
+  <section class="audio-section reveal">
+    <p class="audio-label">♪ &nbsp;Ouça este Momento</p>
+    <div class="audio-controls">
+      <button class="audio-side-btn" aria-label="Anterior">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 20L9 12l10-8v16zM5 19h2V5H5v14z"/></svg>
+      </button>
+      <div class="play-btn-wrap">
+        <div class="play-ping"></div>
+        <button id="playBtn" onclick="togglePlay()" aria-label="Play/Pause">
+          <svg id="playIcon" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <svg id="pauseIcon" fill="currentColor" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+      </div>
+      <button class="audio-side-btn" aria-label="Próxima">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M5 4l10 8-10 8V4zm14 1h-2v14h2V5z"/></svg>
+      </button>
+    </div>
+    <!-- ✅ Música local hospedada junto com o convite -->
+    <audio id="bgMusic" loop>
+      <source src="fotos/audioconvite.mp3" type="audio/mpeg">
+    </audio>
+  </section>
+
+  <!-- FAMILY — sem padrinhos -->
+  <section class="family-section">
+    <div class="side-flower left" style="top:20px"><img src="fotos/florlateral.png" alt=""></div>
+
+    <p class="sec-eyebrow reveal">Acompanhe-me neste dia tão especial</p>
+    <p class="sec-eyebrow reveal" style="margin-bottom:18px">junto aos meus pais:</p>
+    <p class="family-names reveal reveal-delay-1">Lucinda Patrícia &amp;<br>Nome do Pai</p>
+
+    <div class="reveal reveal-delay-2" style="margin-top:28px">
+      <div class="xv-badge">A festejar meus&nbsp;&nbsp;15 Anos</div>
+    </div>
+  </section>
+
+  <!-- DATE -->
+  <section class="date-section">
+    <div class="side-flower right" style="top:-20px"><img src="fotos/florlateral.png" alt=""></div>
+    <p class="date-month reveal">Julho</p>
+    <div class="date-row reveal reveal-delay-1">
+      <span class="date-pill">Sexta-Feira</span>
+      <span class="date-day">31</span>
+      <span class="date-pill">2026</span>
+    </div>    
+  </section>
+
+   <!-- FOTO EXTRA -->
+  <div class="full-photo-wrap no-fade">
+    <img src="fotos/novafoto.png" alt="Ana Beatriz" class="full-photo">
+  </div>
+
+  <!-- PINK BLOCK -->
+  <div class="pink-block">
+    <img src="fotos/fundorosa_2.png" alt="" class="pink-block-bg">
+    <section class="countdown-section">
+      <span class="countdown-pre reveal">Faltam</span>
+      <div class="countdown-grid reveal reveal-delay-1">
+        <div class="countdown-unit">
+          <span class="countdown-num" id="days">00</span>
+          <span class="countdown-label">Dias</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="hours">00</span>
+          <span class="countdown-label">Horas</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="minutes">00</span>
+          <span class="countdown-label">Min</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="seconds">00</span>
+          <span class="countdown-label">Seg</span>
+        </div>
+      </div>
+    </section>
+    <section class="calendar-section">
+      <p class="sec-eyebrow reveal" style="margin-bottom:2px">O Grande Dia</p>
+      <p class="cal-month reveal reveal-delay-1">Julho</p>
+      <div class="cal-grid-header reveal reveal-delay-2">
+        <div>Seg</div><div>Ter</div><div>Qua</div>
+        <div>Qui</div><div>Sex</div><div>Sáb</div><div>Dom</div>
+      </div>
+      <div class="cal-grid reveal reveal-delay-3">
+        <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+        <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div>
+        <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div>
+        <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div>
+        <div class="highlight">31</div>
+        <div>28</div>
+        <div>29</div><div>30</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FLORAL DIVIDER -->
+  <div style="margin: 48px 0; mix-blend-mode: multiply;">
+    <img src="fotos/flortop.webp" alt="" class="floral-divider">
+  </div>
+
+  <!-- LOCATIONS — apenas Recepção -->
+  <section class="section-pad">
+    <div class="location-card reveal">
+      <div class="location-icon">
+        <svg width="36" height="36" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M21 21H3m6-10v10m6-10v10M8 3l4 8 4-8H8z"/></svg>
+      </div>
+      <h3 class="sec-title">Recepção</h3>
+      <p class="location-time">08:30</p>
+      <p class="location-name">
+        Meu sertão - Gangaço<br>
+        <span style="font-size:12px">Bairro Tarumã - Pres. Dutra-MA.</span>
+      </p>
+      <a href="https://maps.app.goo.gl/zaHeW45uqW6skhrPA" class="btn-gold" target="_blank">Ver Localização</a>
+    </div>
+  </section>
+
+  <!-- PHOTO CENTRAL -->
+  <div class="full-photo-wrap mask-both">
+    <img src="fotos/fotocentral.png" alt="Ana Beatriz" class="full-photo">
+  </div>
+
+  <!-- ITINERARY -->
+  
+
+  <!-- DRESS CODE -->
+  <section class="dress-section">
+    <div class="side-flower left" style="top:0"><img src="fotos/florlateral.png" alt=""></div>
+    <p class="sec-eyebrow reveal">Pedido especial</p>
+    <h3 class="sec-title reveal reveal-delay-1">Código de Vestimenta</h3>
+    <div class="gold-rule reveal reveal-delay-1"></div>
+    <p class="location-time reveal reveal-delay-2" style="font-size:13px;letter-spacing:.12em;margin:8px 0">TRAJE ESPORTE FINO</p>
+    <div class="dress-icons reveal reveal-delay-3">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L4 7v14h16V7l-8-4zm0 2.5l5 2.5H7l5-2.5zM12 9l3 8h-6l3-8zm-2 9h4v2h-4v-2zm-4-9v10H5V8.5l1 .5zm12-.5l1-.5v10h-1V8.5z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L7 9v2h2v10h6V11h2V9l-5-6zm0 2.5l2.5 3H9.5L12 5.5zM10 11h4v8h-4v-8z"/></svg>
+    </div>
+    <p class="dress-note reveal reveal-delay-4">
+      Com muito carinho, pedimos evitar o tom azul ou verde, reservado especialmente para a debutante.
+    </p>
+  </section>
+
+  <!-- PHOTO 2 -->
+  <div class="full-photo-wrap no-fade">
+    <img src="fotos/debutante02.png" alt="Ana Beatriz" class="full-photo">
+  </div>
+
+  <!-- GIFT -->
+  <section class="gift-section">
+    <div class="side-flower right" style="top:0"><img src="fotos/florlateral.png" alt=""></div>
+    <div class="reveal" style="color:var(--olive);margin-bottom:14px">
+      <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>
+    </div>
+    <h3 class="sec-title reveal reveal-delay-1">Sugestão de Presentes</h3>
+    <div class="gold-rule reveal reveal-delay-1"></div>
+    <p class="gift-note reveal reveal-delay-2">
+      Sua presença é o meu maior presente. Mas, se desejar me presentear de uma forma especial, minha sugestão de presente será via PIX. Obrigada.
+    </p>
+    <div class="reveal reveal-delay-3" style="display:flex;justify-content:center">
+      <div class="bank-card glass-card">
+        <p class="bank-row">Banco ABC</p>
+        <p class="bank-row">ANA BEATRIZ BATISTA RIBEIRO</p>
+        <p class="bank-row accent">99984030638</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIRM -->
+  <section class="confirm-section">
+    <div class="side-flower right" style="top:-10px"><img src="fotos/florlateral.png" alt=""></div>
+    <div class="reveal" style="color:var(--olive);margin-bottom:14px">
+      <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+    </div>
+    <h3 class="sec-title reveal reveal-delay-1">Confirmar Presença</h3>
+    <div class="gold-rule reveal reveal-delay-1"></div>
+    <p class="confirm-body reveal reveal-delay-2">
+      Por favor, confirme sua presença<br>até dia 12 de julho.
+    </p>
+    <a href="https://wa.me/559981589710?text=Olá%20Ana%20Beatriz!%20Confirmo%20minha%20presença%20na%20sua%20festa%20de%2015%20anos%20%F0%9F%8E%89" class="btn-gold reveal reveal-delay-3" target="_blank">Confirmar Aqui</a>
+    <p class="confirm-note reveal reveal-delay-4">
+      Com muito carinho, esta celebração é para que adolescentes e adultos possam compartilhar e desfrutar juntos.
+    </p>
+    <p class="confirm-note bold reveal reveal-delay-4" style="margin-top:16px">
+      Sua presença e alegria farão com que esta noite seja inesquecível.
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-farewell reveal">Esperamos você!</p>
+    <div class="reveal reveal-delay-1" style="display:flex;justify-content:center;margin-bottom:48px">
+      <div class="bouquet-frame">
+        <img src="fotos/buque.jpg" alt="Buquê">
+      </div>
+    </div>
+  </footer>
+
+  <div class="full-photo-wrap no-fade" style="pointer-events:none">
+    <img src="fotos/debutante03.png" alt="Ana Beatriz" class="full-photo">
+  </div>
+
+</main>
+
+<script>
+const intro      = document.getElementById('intro');
+const introVideo = document.getElementById('introVideo');
+const introOvl   = document.getElementById('introOverlay');
+const skipBtn    = document.getElementById('skipBtn');
+
+function startIntro() {
+  introOvl.style.display = 'none';
+  skipBtn.style.display  = 'block';
+  introVideo.play().catch(() => endIntro());
+}
+function endIntro() {
+  introVideo.pause();
+  intro.style.opacity = '0';
+  intro.style.pointerEvents = 'none';
+  document.body.style.overflow = 'auto';
+  setTimeout(() => {
+    intro.style.display = 'none';
+    startPetals();
+    audio.play().catch(e => console.warn(e));
+    playIcon.style.display  = 'none';
+    pauseIcon.style.display = 'block';
+    audioPlaying = true;
+  }, 1800);
+}
+introVideo.addEventListener('timeupdate', () => {
+  if (!introVideo.paused && introVideo.duration > 0) {
+    const remaining = introVideo.duration - introVideo.currentTime;
+    if (remaining <= 2.0 && intro.style.opacity !== '0') endIntro();
+  }
+});
+introVideo.addEventListener('error', endIntro);
+
+const audio     = document.getElementById('bgMusic');
+const playIcon  = document.getElementById('playIcon');
+const pauseIcon = document.getElementById('pauseIcon');
+let audioPlaying = false;
+function togglePlay() {
+  if (audioPlaying) {
+    audio.pause();
+    playIcon.style.display  = 'block';
+    pauseIcon.style.display = 'none';
+  } else {
+    audio.play().catch(e => console.warn(e));
+    playIcon.style.display  = 'none';
+    pauseIcon.style.display = 'block';
+  }
+  audioPlaying = !audioPlaying;
+}
+
+const TARGET = new Date("July 31, 2026 19:00:00").getTime();
+const pad = n => String(n).padStart(2, '0');
+(function tick() {
+  const diff = TARGET - Date.now();
+  if (diff <= 0) { ['days','hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent = '00'); return; }
+  document.getElementById('days').textContent    = pad(Math.floor(diff / 86400000));
+  document.getElementById('hours').textContent   = pad(Math.floor((diff % 86400000) / 3600000));
+  document.getElementById('minutes').textContent = pad(Math.floor((diff % 3600000) / 60000));
+  document.getElementById('seconds').textContent = pad(Math.floor((diff % 60000) / 1000));
+  setTimeout(tick, 1000);
+})();
+
+function startPetals() {
+  const layer = document.getElementById('petalLayer');
+  const SRC = 'fotos/image-Photoroom - 2026-06-05T155647.242.png';
+  for (let i = 0; i < 18; i++) {
+    const el = document.createElement('img');
+    el.classList.add('petal');
+    const size  = 18 + Math.random() * 36;
+    const dur   = 9  + Math.random() * 10;
+    const delay = Math.random() * 14;
+    const drift = (Math.random() - 0.5) * 220;
+    const rot   = 180 + Math.random() * 540;
+    el.style.cssText = `width:${size}px;left:${Math.random()*110-5}%;animation-duration:${dur}s;animation-delay:${delay}s;`;
+    el.style.setProperty('--pdrift', drift + 'px');
+    el.style.setProperty('--prot',   rot   + 'deg');
+    el.src = SRC;
+    el.style.objectFit = 'cover';
+    el.style.borderRadius = '50% 5% 50% 5%';
+    layer.appendChild(el);
+  }
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
